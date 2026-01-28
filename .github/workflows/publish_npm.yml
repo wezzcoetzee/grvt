@@ -1,0 +1,38 @@
+name: Publish to npm
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    permissions:
+      contents: read
+      id-token: write
+
+    steps:
+      - uses: actions/checkout@v6
+      - uses: actions/setup-node@v6
+        with:
+          node-version: "24.x"
+
+      - name: Build package
+        run: npx deno run -A .github/scripts/build_npm.ts
+
+      - name: Determine npm tag
+        id: tag
+        run: |
+          # Read version from deno.json
+          VERSION=$(node -p "require('./deno.json').version")
+          # Extract tag (alpha, beta, rc) from version string if present
+          TAG=$(echo "$VERSION" | sed -n 's/.*-\(alpha\|beta\|rc\).*/\1/p')
+          # If no known tag found but version contains hyphen, use "prerelease"
+          [[ -z "$TAG" && "$VERSION" == *-* ]] && TAG="prerelease"
+          # Default to "latest" if no tag determined
+          echo "value=${TAG:-latest}" >> $GITHUB_OUTPUT
+
+      - name: Publish package
+        working-directory: ./build/npm
+        run: npm publish --tag ${{ steps.tag.outputs.value }}

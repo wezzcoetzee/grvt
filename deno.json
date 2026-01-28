@@ -1,0 +1,54 @@
+{
+  "name": "@wezzcoetzee/grvt",
+  "version": "0.1.0-alpha.1",
+  "license": "MIT",
+  "exports": {
+    ".": "./src/mod.ts",
+    "./types": "./src/types/mod.ts",
+    "./config": "./src/config/mod.ts",
+    "./transport": "./src/transport/mod.ts",
+    "./signing": "./src/signing/mod.ts",
+    "./raw": "./src/raw/mod.ts",
+    "./ccxt": "./src/ccxt/mod.ts"
+  },
+  "tasks": {
+    "example:market-data": "deno run --allow-net examples/getting-started/market-data.ts",
+    "example:authenticated": "deno run --allow-net --allow-env examples/getting-started/authenticated.ts",
+    "example:websocket": "deno run --allow-net examples/getting-started/websocket-streams.ts"
+  },
+  "fmt": {
+    "lineWidth": 120
+  },
+  "lint": {
+    "rules": {
+      "tags": ["recommended", "jsr"],
+      "include": [
+        "default-param-last",
+        "eqeqeq",
+        "explicit-function-return-type",
+        "explicit-module-boundary-types",
+        "no-console",
+        "no-eval",
+        "no-inferrable-types",
+        "no-non-null-asserted-optional-chain",
+        "no-self-compare",
+        "no-sparse-arrays",
+        "no-throw-literal",
+        "no-useless-rename"
+      ],
+      "exclude": ["no-slow-types"]
+    },
+    "exclude": ["examples/"]
+  },
+  "publish": {
+    "exclude": [".github", "docs", "tests", "scripts", "examples"]
+  },
+  "imports": {
+    "@wezzcoetzee/grvt": "./src/mod.ts",
+    "@wezzcoetzee/grvt/raw": "./src/raw/mod.ts",
+    "@noble/hashes": "jsr:@noble/hashes@^2.0.1",
+    "@paulmillr/micro-eth-signer": "jsr:@paulmillr/micro-eth-signer@^0.18.1",
+    "@valibot/valibot": "jsr:@valibot/valibot@^1.2.0"
+  },
+  "lock": false
+}

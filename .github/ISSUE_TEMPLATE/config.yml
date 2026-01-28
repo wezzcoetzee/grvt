@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation
+    url: https://github.com/wezzcoetzee/grvt/tree/main/docs
+    about: Check the documentation before opening an issue
+  - name: GRVT API Docs
+    url: https://docs.grvt.io
+    about: Official GRVT Exchange API documentation
+  - name: Questions & Discussions
+    url: https://github.com/wezzcoetzee/grvt/discussions
+    about: Ask questions and discuss ideas
