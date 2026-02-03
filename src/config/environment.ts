@@ -35,7 +35,7 @@ export interface GrvtEnvConfig {
  */
 export const CHAIN_IDS: Record<GrvtEnv, number> = {
   [GrvtEnv.DEV]: 327,
-  [GrvtEnv.STG]: 328,
+  [GrvtEnv.STG]: 327,
   [GrvtEnv.TESTNET]: 326,
   [GrvtEnv.PROD]: 325,
 };
