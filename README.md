@@ -4,7 +4,7 @@ A Deno-first, NPM-compatible TypeScript SDK for the [GRVT Exchange](https://grvt
 
 ## Features
 
-- **Deno & NPM**: Native TypeScript for Deno, works with Node.js 20+
+- **Deno & NPM**: Native TypeScript for Deno, works with Node.js 18+
 - **Full Type Safety**: Complete TypeScript types for all API requests/responses
 - **EIP-712 Signing**: Built-in order signing (viem, ethers, or standalone)
 - **WebSocket Support**: Real-time market data and trade updates
