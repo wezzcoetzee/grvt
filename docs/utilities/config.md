@@ -14,7 +14,7 @@ import { GrvtEnv } from "@wezzcoetzee/grvt";
 | ----------- | ----------------- | -------- | -------------------------------- |
 | Production  | `GrvtEnv.PROD`    | 325      | Live trading with real funds     |
 | Testnet     | `GrvtEnv.TESTNET` | 326      | Testing with testnet funds       |
-| Staging     | `GrvtEnv.STG`     | 328      | Internal staging environment     |
+| Staging     | `GrvtEnv.STG`     | 327      | Internal staging environment     |
 | Development | `GrvtEnv.DEV`     | 327      | Internal development environment |
 
 ```ts
@@ -38,7 +38,7 @@ import { CHAIN_IDS, GrvtEnv } from "@wezzcoetzee/grvt";
 
 console.log(CHAIN_IDS[GrvtEnv.PROD]); // 325
 console.log(CHAIN_IDS[GrvtEnv.TESTNET]); // 326
-console.log(CHAIN_IDS[GrvtEnv.STG]); // 328
+console.log(CHAIN_IDS[GrvtEnv.STG]); // 327
 console.log(CHAIN_IDS[GrvtEnv.DEV]); // 327
 ```
 

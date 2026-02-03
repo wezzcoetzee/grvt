@@ -11,7 +11,7 @@ GRVT provides multiple environments for testing and production:
 | ----------- | ----------------- | -------- | -------------------------- |
 | Production  | `GrvtEnv.PROD`    | 325      | Live trading               |
 | Testnet     | `GrvtEnv.TESTNET` | 326      | Testing with testnet funds |
-| Staging     | `GrvtEnv.STG`     | 328      | Internal staging           |
+| Staging     | `GrvtEnv.STG`     | 327      | Internal staging           |
 | Development | `GrvtEnv.DEV`     | 327      | Internal development       |
 
 {% hint style="info" %} Use `GrvtEnv.TESTNET` for development and testing. Switch to `GrvtEnv.PROD` only for production
