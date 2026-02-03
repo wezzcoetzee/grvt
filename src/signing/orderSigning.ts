@@ -109,7 +109,7 @@ export interface SignedOrder {
  * @returns A random uint32 value.
  */
 export function generateNonce(): number {
-  return Math.floor(Math.random() * 0xFFFFFFFF);
+  return Math.floor(Math.random() * 1e9);
 }
 
 /**

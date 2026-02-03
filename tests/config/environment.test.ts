@@ -15,7 +15,7 @@ Deno.test("config", async (t) => {
     assertEquals(CHAIN_IDS[GrvtEnv.PROD], 325);
     assertEquals(CHAIN_IDS[GrvtEnv.TESTNET], 326);
     assertEquals(CHAIN_IDS[GrvtEnv.DEV], 327);
-    assertEquals(CHAIN_IDS[GrvtEnv.STG], 328);
+    assertEquals(CHAIN_IDS[GrvtEnv.STG], 327);
   });
 
   await t.step("getEnvConfig", async (t) => {
@@ -46,7 +46,7 @@ Deno.test("config", async (t) => {
     await t.step("returns config for STG", () => {
       const config = getEnvConfig(GrvtEnv.STG);
       assertExists(config);
-      assertEquals(config.chainId, 328);
+      assertEquals(config.chainId, 327);
     });
 
     await t.step("all URLs are valid HTTPS URLs", () => {

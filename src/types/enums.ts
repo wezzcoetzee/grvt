@@ -91,16 +91,46 @@ export enum CandlestickType {
  * Supported currencies
  */
 export enum Currency {
-  /** USD fiat currency */
   USD = "USD",
-  /** USDC token */
   USDC = "USDC",
-  /** USDT token */
   USDT = "USDT",
-  /** ETH token */
   ETH = "ETH",
-  /** BTC token */
   BTC = "BTC",
+  SOL = "SOL",
+  ARB = "ARB",
+  BNB = "BNB",
+  ZK = "ZK",
+  POL = "POL",
+  OP = "OP",
+  ATOM = "ATOM",
+  KPEPE = "KPEPE",
+  TON = "TON",
+  XRP = "XRP",
+  XLM = "XLM",
+  WLD = "WLD",
+  WIF = "WIF",
+  VIRTUAL = "VIRTUAL",
+  TRUMP = "TRUMP",
+  SUI = "SUI",
+  KSHIB = "KSHIB",
+  POPCAT = "POPCAT",
+  PENGU = "PENGU",
+  LINK = "LINK",
+  KBONK = "KBONK",
+  JUP = "JUP",
+  FARTCOIN = "FARTCOIN",
+  ENA = "ENA",
+  DOGE = "DOGE",
+  AIXBT = "AIXBT",
+  AI16Z = "AI16Z",
+  ADA = "ADA",
+  AAVE = "AAVE",
+  BERA = "BERA",
+  VINE = "VINE",
+  PENDLE = "PENDLE",
+  UXLINK = "UXLINK",
+  KAITO = "KAITO",
+  IP = "IP",
 }
 
 /**
