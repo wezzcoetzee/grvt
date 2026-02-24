@@ -2,7 +2,8 @@
 
 ## Overview
 
-TypeScript SDK providing two client tiers for the GRVT crypto derivatives exchange. Runs on Deno, cross-published to JSR and NPM.
+TypeScript SDK providing two client tiers for the GRVT crypto derivatives exchange. Runs on Deno, cross-published to JSR
+and NPM.
 
 ## Directory Structure
 
@@ -43,11 +44,12 @@ types ─→ config ─→ transport ─→ signing ─→ raw ─→ ccxt
 
 ## Export Strategy
 
-Each module has `mod.ts` barrel files. Root `src/mod.ts` re-exports everything into a flat namespace. Consumers can also import from subpaths:
+Each module has `mod.ts` barrel files. Root `src/mod.ts` re-exports everything into a flat namespace. Consumers can also
+import from subpaths:
 
 ```ts
-import { GrvtClient } from "@wezzcoetzee/grvt";           // everything
-import { GrvtRawClient } from "@wezzcoetzee/grvt/raw";    // just raw client
+import { GrvtClient } from "@wezzcoetzee/grvt"; // everything
+import { GrvtRawClient } from "@wezzcoetzee/grvt/raw"; // just raw client
 import { HttpTransport } from "@wezzcoetzee/grvt/transport";
 ```
 
@@ -55,13 +57,15 @@ import { HttpTransport } from "@wezzcoetzee/grvt/transport";
 
 ### GrvtRawClient (`src/raw/client.ts`)
 
-Thin wrapper over `IRequestTransport`. Each method maps 1:1 to a GRVT REST endpoint. Returns raw API response types with snake_case fields. No signing, no market loading — caller manages everything.
+Thin wrapper over `IRequestTransport`. Each method maps 1:1 to a GRVT REST endpoint. Returns raw API response types with
+snake_case fields. No signing, no market loading — caller manages everything.
 
 **Use when**: you want full control, custom transports, or only need market data.
 
 ### GrvtClient (`src/ccxt/client.ts`)
 
 CCXT-style ergonomic client. Wraps `GrvtRawClient` and adds:
+
 - Automatic market loading and instrument resolution
 - Order signing via `signOrder()` with wallet abstraction
 - Symbol parsing (`BTC_USDT_Perp` → kind/base/quote)
@@ -101,22 +105,22 @@ CCXT-style ergonomic client. Wraps `GrvtRawClient` and adds:
 
 Structural typing — no imports from viem or ethers:
 
-| Type | Detection | Method |
-|---|---|---|
-| `AbstractViemLocalAccount` | has `.address` string | `.signTypedData(params)` |
-| `AbstractEthersV6Signer` | has `.signTypedData` (not `_signTypedData`) | `.signTypedData(domain, types, value)` |
-| `AbstractEthersV5Signer` | has `._signTypedData` | `._signTypedData(domain, types, value)` |
+| Type                       | Detection                                   | Method                                  |
+| -------------------------- | ------------------------------------------- | --------------------------------------- |
+| `AbstractViemLocalAccount` | has `.address` string                       | `.signTypedData(params)`                |
+| `AbstractEthersV6Signer`   | has `.signTypedData` (not `_signTypedData`) | `.signTypedData(domain, types, value)`  |
+| `AbstractEthersV5Signer`   | has `._signTypedData`                       | `._signTypedData(domain, types, value)` |
 
 Built-in `PrivateKeySigner` uses `@paulmillr/micro-eth-signer` — zero dependency on viem/ethers.
 
 ## Environment Configuration
 
-| Environment | Chain ID | Edge Domain |
-|---|---|---|
-| PROD | 325 | `edge.grvt.io` |
-| TESTNET | 326 | `edge.testnet.grvt.io` |
-| DEV | 327 | `edge.dev.gravitymarkets.io` |
-| STG | 327 | `edge.stg.gravitymarkets.io` |
+| Environment | Chain ID | Edge Domain                  |
+| ----------- | -------- | ---------------------------- |
+| PROD        | 325      | `edge.grvt.io`               |
+| TESTNET     | 326      | `edge.testnet.grvt.io`       |
+| DEV         | 327      | `edge.dev.gravitymarkets.io` |
+| STG         | 327      | `edge.stg.gravitymarkets.io` |
 
 Each env has three endpoint types: edge (auth/graphql), trade data, and market data — each with RPC and WS URLs.
 
@@ -138,8 +142,10 @@ GrvtInvalidOrder (separate hierarchy — order validation errors)
 PRs run format check, lint, doc check, and tests with coverage (uploaded to Coveralls).
 
 Releases trigger dual publishing:
+
 - **JSR**: `npx jsr publish`
-- **NPM**: `dnt` build (`scripts/build_npm.ts`) → `npm publish` with semver tag detection (alpha/beta/rc → named tags, stable → latest)
+- **NPM**: `dnt` build (`scripts/build_npm.ts`) → `npm publish` with semver tag detection (alpha/beta/rc → named tags,
+  stable → latest)
 
 ## Data Conventions
 

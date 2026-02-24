@@ -10,17 +10,21 @@
 
 ### Deno Built-in
 
-`recommended` + `jsr` tags plus: `eqeqeq`, `no-console`, `no-eval`, `no-throw-literal`, `no-self-compare`, `default-param-last`, `no-inferrable-types`, `no-non-null-asserted-optional-chain`, `no-useless-rename`, `no-sparse-arrays`.
+`recommended` + `jsr` tags plus: `eqeqeq`, `no-console`, `no-eval`, `no-throw-literal`, `no-self-compare`,
+`default-param-last`, `no-inferrable-types`, `no-non-null-asserted-optional-chain`, `no-useless-rename`,
+`no-sparse-arrays`.
 
 ### Custom Plugins (`.dev/`)
 
 **`deno_style_lint_plugin.ts`** — Deno Style Guide enforcement:
+
 - `prefer-private-field` — use `#field` not `private field`
 - `no-top-level-arrow-syntax` — use `function` declarations at module level
 - `naming-convention` — PascalCase types, camelCase functions, CONSTANT_CASE constants
 - `error-message` — uppercase start, no trailing period, no contractions
 
 **`valibot_lint_plugin.ts`** — Valibot schema rules:
+
 - `no-explicit-any` — use `v.unknown()` instead of `v.any()`
 
 ## Formatting
@@ -48,6 +52,7 @@ Every PR must pass:
 ## Dependency Policy
 
 Minimize dependencies. Current production deps:
+
 - `@noble/hashes` — cryptographic hashing
 - `@paulmillr/micro-eth-signer` — EIP-712 signing
 - `@valibot/valibot` — schema validation

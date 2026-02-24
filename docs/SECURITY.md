@@ -20,7 +20,8 @@ const transport = new HttpTransport({
 });
 ```
 
-Authenticated endpoints (trading, account, transfers) set `requiresAuth: true` in request options. The transport handles login transparently.
+Authenticated endpoints (trading, account, transfers) set `requiresAuth: true` in request options. The transport handles
+login transparently.
 
 ## EIP-712 Order Signing
 
@@ -75,11 +76,11 @@ OrderLeg {
 
 Three wallet types supported via structural typing (no library imports required):
 
-| Wallet | Library | Detection |
-|---|---|---|
-| `AbstractViemLocalAccount` | viem | has `.address` property |
-| `AbstractEthersV6Signer` | ethers v6 | has `.signTypedData()` |
-| `AbstractEthersV5Signer` | ethers v5 | has `._signTypedData()` |
+| Wallet                     | Library   | Detection               |
+| -------------------------- | --------- | ----------------------- |
+| `AbstractViemLocalAccount` | viem      | has `.address` property |
+| `AbstractEthersV6Signer`   | ethers v6 | has `.signTypedData()`  |
+| `AbstractEthersV5Signer`   | ethers v5 | has `._signTypedData()` |
 
 ### Built-in PrivateKeySigner
 
@@ -91,17 +92,18 @@ import { PrivateKeySigner } from "@wezzcoetzee/grvt/signing";
 const signer = new PrivateKeySigner("0x...");
 ```
 
-Uses `@paulmillr/micro-eth-signer` internally. Private key stored as a `#privateKey` class field (truly private, not accessible via reflection).
+Uses `@paulmillr/micro-eth-signer` internally. Private key stored as a `#privateKey` class field (truly private, not
+accessible via reflection).
 
 ## Environment Isolation
 
 Chain IDs prevent cross-environment replay attacks:
 
 | Environment | Chain ID |
-|---|---|
-| PROD | 325 |
-| TESTNET | 326 |
-| DEV / STG | 327 |
+| ----------- | -------- |
+| PROD        | 325      |
+| TESTNET     | 326      |
+| DEV / STG   | 327      |
 
 An order signed for testnet (chainId=326) will be rejected by prod (chainId=325) because the EIP-712 domain differs.
 

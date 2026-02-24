@@ -46,30 +46,34 @@ deno test -A          # Run all tests
 ## Architecture Overview
 
 Two client tiers:
+
 - **`GrvtRawClient`** (`src/raw/`) — 1:1 API mapping, returns raw response types
 - **`GrvtClient`** (`src/ccxt/`) — CCXT-style ergonomic wrapper, handles signing/markets
 
 Transport layer (`src/transport/`):
+
 - `HttpTransport` — cookie-based auth, auto-refresh
 - `WebSocketTransport` — pub/sub with auto-resubscribe, 30s keepalive
 
 Signing (`src/signing/`):
+
 - EIP-712 typed data signing for orders
 - Wallet-agnostic: supports viem, ethers v5/v6, or built-in `PrivateKeySigner`
 - Chain IDs: PROD=325, TESTNET=326, DEV/STG=327
 
 ## CI/CD
 
-| Workflow | Trigger | Purpose |
-|---|---|---|
-| `deno_fmt_lint.yml` | PR | Format + lint check |
-| `deno_tests.yml` | PR | Full test suite + coverage (Coveralls) |
-| `publish_jsr.yml` | Release | Publish to JSR |
-| `publish_npm.yml` | Release | Build via dnt + publish to NPM |
+| Workflow            | Trigger | Purpose                                |
+| ------------------- | ------- | -------------------------------------- |
+| `deno_fmt_lint.yml` | PR      | Format + lint check                    |
+| `deno_tests.yml`    | PR      | Full test suite + coverage (Coveralls) |
+| `publish_jsr.yml`   | Release | Publish to JSR                         |
+| `publish_npm.yml`   | Release | Build via dnt + publish to NPM         |
 
 ## Adding New Functionality
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for step-by-step guides on adding API methods, transport changes, and config updates.
+See [CONTRIBUTING.md](CONTRIBUTING.md) for step-by-step guides on adding API methods, transport changes, and config
+updates.
 
 ## Related Docs
 
